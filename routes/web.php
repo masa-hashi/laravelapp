@@ -22,6 +22,7 @@ Route::get('top', function () {
 
 // Hellow.
 Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+Route::post('hello', 'HelloController@post');
 /*
   Route::get('hello', function () {
   return view('hello.index');

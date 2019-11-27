@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 class HelloController extends Controller
 {
     //index.
-    public function index($id='noname', $pass='unknown') {
+    public function index() {
+      return view('hello.index', ['msg'=>'']);
+    }
 
-      $data = ['msg'=>'これはコントローラから渡されたメッセージです',
-               'id'=>$id];
-
-      return view('hello.index', $data);
+    //POST
+    public function post(Request $request) {
+      return view('hello.index', ['msg'=>$request->msg]);
     }
 }

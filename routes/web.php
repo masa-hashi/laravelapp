@@ -19,3 +19,11 @@ Route::get('/', function () {
 Route::get('top', function () {
     return view('top');
 });
+
+// Hellow.
+Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+/*
+  Route::get('hello', function () {
+  return view('hello.index');
+});
+*/

@@ -32,6 +32,9 @@
           <div class="title m-b-md">
               Toppage. This Page is laravel Study.
           </div>
+          <div>
+            色々とPHP用のパッケージをインストールしました。
+          </div>
       </div>
     </body>
 </html>

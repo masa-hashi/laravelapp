@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Add TopPage.
+Route::get('top', function () {
+    return view('top');
+});

@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Middleware\HelloMiddleware;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,9 +22,9 @@ Route::get('top', function () {
     return view('top');
 });
 
-// Hellow.
-Route::get('hello/{id?}/{pass?}', 'HelloController@index');
-Route::post('hello', 'HelloController@post');
+Route::get('hello', 'HelloController@index')->middleware(HelloMiddleware::class);
+
+//Route::post('hello', 'HelloController@post');
 /*
   Route::get('hello', function () {
   return view('hello.index');

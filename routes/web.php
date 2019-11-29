@@ -22,7 +22,7 @@ Route::get('top', function () {
     return view('top');
 });
 
-Route::get('hello', 'HelloController@index')->middleware(HelloMiddleware::class);
+Route::get('hello', 'HelloController@index')->middleware('helo');
 
 //Route::post('hello', 'HelloController@post');
 /*

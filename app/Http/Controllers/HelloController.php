@@ -27,7 +27,13 @@ class HelloController extends Controller
         'age'  => 'numeric|between:0,150',
       ], $messages);
 
+      $validator->sometimes('age', 'min:0', function($input){
+        return !is_int($input->age);
+      });
 
+      $validator->sometimes('age', 'max:200', function($input){
+        return !is_int($input->age);
+      });
 
       if ($validator->fails()) {
         return redirect('/hello')

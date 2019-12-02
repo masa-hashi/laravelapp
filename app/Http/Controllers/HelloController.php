@@ -17,11 +17,17 @@ class HelloController extends Controller
     //POST
     public function post(Request $request) {
 
+      $messages = [
+        'name.required' => '名前は必須です。'
+      ];
+
       $validator = Validator::make($request->all(), [
         'name' => 'required',
         'mail' => 'email',
         'age'  => 'numeric|between:0,150',
-      ]);
+      ], $messages);
+
+
 
       if ($validator->fails()) {
         return redirect('/hello')

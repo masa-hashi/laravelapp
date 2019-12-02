@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\HelloRequest;
+use Validator;
 
 class HelloController extends Controller
 {
@@ -15,7 +15,19 @@ class HelloController extends Controller
     }
 
     //POST
-    public function post(HelloRequest $request) {
+    public function post(Request $request) {
+
+      $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'mail' => 'email',
+        'age'  => 'numeric|between:0,150',
+      ]);
+
+      if ($validator->fails()) {
+        return redirect('/hello')
+                        ->withErrors($validator)
+                        ->withInput();
+      }
       return view('hello.index', ['msg'=>'Is Corrected!']);
     }
 }

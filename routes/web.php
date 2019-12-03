@@ -30,3 +30,6 @@ Route::post('hello', 'HelloController@post');
   return view('hello.index');
 });
 */
+
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');

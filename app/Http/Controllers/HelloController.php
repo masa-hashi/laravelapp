@@ -78,4 +78,9 @@ class HelloController extends Controller
       $item = DB::table('people')->where('id', $id)->first();
       return view('/hello/show', ['item'=>$item]);
     }
+
+    public function rest(Request $request)
+    {
+        return view('hello.rest');
+    }
 }

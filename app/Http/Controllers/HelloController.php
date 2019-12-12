@@ -8,16 +8,16 @@ use App\Http\Requests\HelloRequest;
 use Validator;
 use Illuminate\Support\Facades\DB;
 use App\Person;
+use Illuminate\Support\Facades\Auth;
 
 class HelloController extends Controller
 {
     public function index(Request $request)
     {
-      $sort = $request->sort;
-      // $items = DB::table('people')->simplePaginate(5);
-      // return view('hello.index', ['items'=> $items]);
+        $user = Auth::user();
+        $sort = $request->sort;
         $items = Person::orderby($sort, 'asc')->paginate(5);
-        $param = ['items' => $items, 'sort' => $sort];
+        $param = ['items' => $items, 'sort' => $sort, 'user' => $user];
         return view('hello.index', $param);
     }
 

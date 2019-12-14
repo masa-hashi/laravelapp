@@ -2,12 +2,15 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HelloTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * A basic feature test example.
      *
@@ -21,6 +24,7 @@ class HelloTest extends TestCase
         $this->assertEmpty($arr);
 
         $msg = "Hello";
+
         $this->assertEquals('Hello', $msg);
 
         $n = random_int(0, 100);
